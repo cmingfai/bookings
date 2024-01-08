@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/cmingfai/bookings/pkg/config"
-	"github.com/cmingfai/bookings/pkg/handlers"
-	"github.com/cmingfai/bookings/pkg/render"
+	"github.com/cmingfai/bookings/internal/config"
+	"github.com/cmingfai/bookings/internal/handlers"
+	"github.com/cmingfai/bookings/internal/render"
 )
 
 const portNumber = ":8080"
@@ -37,7 +37,7 @@ func main() {
 	}
 
 	app.TemplateCache = tc
-	app.UseCache = true
+	app.UseCache = false
 
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
